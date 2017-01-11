@@ -1,0 +1,37 @@
+<template name="mainLayout">
+  {{> header}}
+
+  {{> Template.dynamic template=main}}
+
+  {{> footer}}
+</template>
+
+<template name="header">
+  <header>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+
+        <a class="header item">
+          <img class="logo" style="margin-right: 1em;" src="/images/logo.png">
+          Discord Server Jam
+        </a>
+
+        <div class="right menu">
+          <a class="header item login-button">
+            Login with Discord
+            <img class="logo" style="margin-left: 1em;" src="/images/discord.png">
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+</template>
+
+<template name="footer">
+  
+</template>
+
+<template name="gamePage">
+  <h2>This is the singlePost area.</h2>
+</template>
