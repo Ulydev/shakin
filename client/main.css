@@ -17,3 +17,46 @@ body {
 .logo {
     border-radius: 64px;
 }
+
+/* navbar fix */
+
+#content{
+  padding-top: 53px;
+}
+
+/* from Semantic layout */
+
+#header-background {
+    background: url('/images/header.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.masthead h1.ui.header {
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.masthead .ui.container {
+    padding: 3em;
+}
+
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 700px) {
+    .masthead h1.ui.header {
+        font-size: 2em;
+    }
+    .masthead h2 {
+        font-size: 1.5em;
+    }
+    .masthead .ui.container {
+        padding: 1em;
+    }
+}

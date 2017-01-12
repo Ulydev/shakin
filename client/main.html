@@ -1,37 +1,85 @@
+<head>
+  <link rel='icon' href='/favicon.ico?v=2'>
+</head>
+
 <template name="mainLayout">
   {{> header}}
 
-  {{> Template.dynamic template=main}}
+  <div id="content">
+    {{> Template.dynamic template=top}}
+    <div class="ui main text container">
+      {{> Template.dynamic template=main}}
+    </div>
+  </div>
 
-  {{> footer}}
+  <!-- {{> footer}} -->
 </template>
 
 <template name="header">
-  <header>
-    <div class="ui fixed inverted menu">
-      <div class="ui container">
+  <div id="navbar" class="ui fixed inverted menu">
+    <div class="ui container">
 
-        <a class="header item">
-          <img class="logo" style="margin-right: 1em;" src="/images/logo.png">
-          Discord Server Jam
-        </a>
+      <a class="header item" href="{{ pathFor '/' }}">
+        <img class="logo" style="margin-right: 1em;" src="/images/logo.png">
+        Shakin Jam
+      </a>
+
+      {{#if currentUser}}
+
+        {{> userDropdown }}
+
+      {{else}}
 
         <div class="right menu">
           <a class="header item login-button">
-            Login with Discord
+            Login
             <img class="logo" style="margin-left: 1em;" src="/images/discord.png">
           </a>
         </div>
 
-      </div>
+      {{/if}}
+
     </div>
-  </header>
+  </div>
 </template>
 
-<template name="footer">
-  
+<template name="userDropdown">
+  <div id="user-dropdown" class="ui right dropdown item">
+    Welcome, {{currentUser.profile.name}}
+    {{currentUser.profile.id}}
+    <img class="logo" style="margin-left: 1em;"
+      src="{{ getAvatar currentUser }}"
+    >
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="header">Account</div>
+      <div class="item"><i class="user icon"></i> Games</div>
+      <div class="header"></div>
+      <div class="item logout-button"><i class="power icon"></i> Logout</div>
+    </div>
+  </div>
+</template>
+
+<template name="intro">
+  <div id="header-background" class="ui inverted vertical masthead center aligned segment">
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Shakin Jam
+      </h1>
+      <h2>Join the community and start making games!</h2>
+      <a href="https://discord.gg/t5KZpyC" target="_blank" class="ui huge primary button">Join us on Discord</a>
+    </div>
+  </div>
 </template>
 
 <template name="gamePage">
   <h2>This is the singlePost area.</h2>
+</template>
+
+<template name="gameList">
+  <h2>This is the gameList area.</h2>
+</template>
+
+<template name="footer">
+  Made with love by Ulydev and the Discord Gamedev community
 </template>

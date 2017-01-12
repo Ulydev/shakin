@@ -4,7 +4,15 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 Meteor.startup(() => {
-  Meteor.absoluteUrl.defaultOptions.rootUrl = 'http://dev.ulydev.com:3000/';
+  
+});
+
+Template.userDropdown.onRendered(() => {
+  $('#user-dropdown').dropdown("refresh");
+});
+
+Template.registerHelper("getAvatar", (user) => {
+  return "https://images.discordapp.net/avatars/" + user.profile.discordId + "/" + user.profile.discordAvatar + ".jpg";
 });
 
 Template.header.events({
